@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+<body>
+ 
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 offset-md-1" >
+                <button class="btn btn-danger btn-sm mt-5" onclick="logout()">Logout</button>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card1">
+                            <h4>deposite balance</h4>
+                            <h2><span  id="depositeBalance">00</span>$</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card2">
+                            <h4>widrow balance</h4>
+                            <h2><span  id="widowBalance">00</span>$</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card3">
+                            <h4>total balance</h4>
+                            <h2><span  id="totalBalance">1000</span>$</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 offset-md-2">
+                        <label for="">Deposite money</label>
+                        <input class="form-control" type="text" id="deposite">
+                        <button class="btn btn-success mt-3 form-control" id="depositebtn"  type="submit">Deposite money</button>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">widthdrow money</label>
+                        <input class="form-control" type="text" id="widthrow">
+                        <button class="btn btn-success mt-3 form-control" id="widthdrowBtn"  type="submit">Deposite money</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+<script>
+
+ 
+function math(btnid,id,cb) {
+    document.getElementById(btnid).addEventListener('click',()=>{
+    const money = document.getElementById(id).value;
+    const totalMoney = parseFloat(money) ;
+    console.log(totalMoney);
+    cb(totalMoney)
+    })
+}
+
+
+function afterMath(id,depositeMoney) {
+    const balance = document.getElementById(id).innerText;
+     const parseBalance = parseFloat(balance)
+     const totalBalance = parseBalance+depositeMoney;
+     document.getElementById(id).innerText=totalBalance;
+     document.getElementById('deposite').value = "";
+     document.getElementById('widthrow').value = "";
+     console.log(totalBalance);
+}
+math("depositebtn","deposite",(depositeMoney)=>{
+        afterMath('depositeBalance',depositeMoney);
+        afterMath('totalBalance',depositeMoney)
+ 
+})
+
+math("widthdrowBtn","widthrow",(depositeMoney)=>{
+        afterMath('widowBalance',1*depositeMoney);
+        afterMath('totalBalance',-1*depositeMoney)
+ 
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function logout(){
+        document.cookie = `login="no"; expires =${new Date()-1000000000000000000000000000}`
+        window.location.href="/"
+    }
+    var x =  document.cookie.split('login')[1]
+    console.log(x);
+    if(x=='=yes'){
+        msg = "loged IN"
+    }else{
+        window.location.href="/"
+    }
+    
+</script>
+</body>
+</html>

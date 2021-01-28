@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     background-color: rgba(255, 255, 255, 0.808);
+   
+ 
+    
+
+}
+ .login{
+     box-shadow: 5px 5px 5px rgb(107, 91, 91);
+     border: 2px solid rgb(156, 156, 156);
+ }
+
+ .bank-title {
+     
+    font-size:2.2rem;
+    padding:5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title-roll{
+    width: 100%;
+    padding:10px;
+    background-color: rgba(255, 0, 157, 0.959);
+    border-radius: 5px;
+    margin-bottom: 40px;
+
+}
+
+.card{
+   color:white;
+   padding:20px;
+   margin:15px;
+   text-align: center;
+}
+
+.card1{
+    background-color:rgb(255, 164, 28)
+}
+.card2{
+    background-color:rgb(138, 13, 240)
+}
+.card3{
+background-color: rgb(9, 240, 67);
+}
